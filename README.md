@@ -8,8 +8,10 @@ ModelSerializer class, provided for the framework  is used to process input and 
 
 
 ## :wrench: Installation 
-You will need to create a virtual environment with python min 3.10.
 
+Ensure [Docker](https://www.docker.com/get-started/)is installed locally 
+
+You will need to create a virtual environment with python min 3.10:
 ```shell
 python -m venv venv
 ```
@@ -47,6 +49,13 @@ Notice that development server is controlled by ASGI/Channels since we added 'ch
 this configuration allow us to choose between writing synchronous code and asynchronous code, or both.<br> For now, just
 Django's request, response cycle, which is synchronous cycle is implemented here. 
 
+Connect to the database
+
+```shell
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=products_pass -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=products_user postgres
+```
+
+
 Access to the token generated with the command:
 
 ```shell
@@ -57,6 +66,8 @@ If port 8000 is available, django will run the development server in it.
 You can go to the browser to use the interface provided by DRF and Django:<br>
 -http://127.0.0.1:8000/  <br>
 -http://127.0.0.1:8000/admin/ (you will need to enter: the user and the password that you just created in the previous steps)
+
+
 
 ### Let's use the curl client for CRUD operations.
 
