@@ -14,3 +14,5 @@ class ProductSerializer(serializers.ModelSerializer):
 			'name',
 			'detail'
 		)
+
+		
