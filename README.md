@@ -2,8 +2,8 @@
 
 This project uses Django Rest Framework (DRF) to build an API which stores two items (strings) enter by a
 client 1. A  name 2. A description. In addition,  it generates automatically  A universally unique identifier  (UUID),
-creation date and update date for each item.\ for making operations as: Create, Update, delete, you can use the DRF
-interface as well as a terminal with the endpoints given below.\ 
+creation date and update date for each item.<br> for making operations as: Create, Update, delete, you can use the DRF
+interface as well as a terminal with the endpoints given below.<br> 
 ModelSerializer class, provided for the framework  is used to process input and output data.
 
 
