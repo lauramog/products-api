@@ -9,7 +9,7 @@ ModelSerializer class, provided for the framework  is used to process input and 
 
 ## :wrench: Installation 
 
-Ensure [Docker](https://www.docker.com/get-started/)is installed locally 
+Ensure [Docker](https://www.docker.com/get-started/) is installed locally 
 
 You will need to create a virtual environment with python min 3.10:
 ```shell
