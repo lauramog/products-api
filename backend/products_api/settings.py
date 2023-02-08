@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework', 
     'rest_framework.authtoken',
+    'channels',
     'core', 
 ]
 
@@ -40,6 +41,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ASGI_APPLICATION = 'products_api.routing.application'
 
 ROOT_URLCONF = 'products_api.urls'
 
