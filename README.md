@@ -43,6 +43,9 @@ Start the server
 ```shell
 python manage.py runserver
 ```
+Notice that development server is controlled by ASGI/Channels since we added 'channels' to INSTALLED_APPS in settings.
+this configuration allow us to choose between writing synchronous code and asynchronous code, or both.<br> For now, just
+Django's request, response cycle, which is synchronous cycle is implemented here. 
 
 Access to the token generated with the command:
 
