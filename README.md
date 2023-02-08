@@ -1,4 +1,4 @@
-#API in Django Rest Framework
+# API in Django Rest Framework
 
 This project uses Django Rest Framework (DRF) to build an API which stores two items (strings) enter by a client 1. A  name 2. A description. In addition  it generates automaticly  A universally unique identifier  (UUID), creation date and update date for each item. 
 
