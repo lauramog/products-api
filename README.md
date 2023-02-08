@@ -51,11 +51,11 @@ curl -XPOST -F 'username=your_username' -F 'password=your_password' http://local
 ```
 If port 8000 is available, django will run the development server in it. 
 
-You can go to the browser to use the interface provided by DRF and Django:
-*http://127.0.0.1:8000/
-*http://127.0.0.1:8000/admin/ (you will need to enter: the user and the password that you just created in the previous steps)
+You can go to the browser to use the interface provided by DRF and Django:<br>
+-http://127.0.0.1:8000/  <br>
+-http://127.0.0.1:8000/admin/ (you will need to enter: the user and the password that you just created in the previous steps)
 
-#### Let's use the curl client for CRUD operations.
+### Let's use the curl client for CRUD operations.
 
 Populate the DB from your terminal making a POST request: 
 
