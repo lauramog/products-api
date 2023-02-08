@@ -2,8 +2,7 @@
 
 This project uses Django Rest Framework (DRF) to build an API which stores two items (strings) enter by a
 client 1. A  name 2. A description. In addition,  it generates automatically  A universally unique identifier  (UUID),
-creation date and update date for each item.<br> for making operations as: Create, Update, delete, you can use the DRF
-interface as well as a terminal with the endpoints given below.<br> 
+creation date and update date for each item.<br> for making operations as: Create, Update, delete, you can use the DRF interface as well as a terminal with the endpoints given below.<br> 
 ModelSerializer class, provided for the framework  is used to process input and output data.
 
 
@@ -12,6 +11,7 @@ ModelSerializer class, provided for the framework  is used to process input and 
 Ensure [Docker](https://www.docker.com/get-started/) is installed locally 
 
 You will need to create a virtual environment with python min 3.10:
+
 ```shell
 python -m venv venv
 ```
@@ -33,7 +33,7 @@ Install the requirements
 pip install -r backend/requirements.txt
 ```
 
-Create a user. This will give you access to Django admin page, and it will create a token that you will use to interact with the Data base.
+Create a user; This will give you access to Django admin page, and it will create a token that you will use to interact with the Data base.
 
 ```shell
 python manage.py createsuperuser
@@ -47,7 +47,7 @@ python manage.py runserver
 ```
 Notice that development server is controlled by ASGI/Channels since we added 'channels' to INSTALLED_APPS in settings.
 this configuration allow us to choose between writing synchronous code and asynchronous code, or both.<br> For now, just
-Django's request, response cycle, which is synchronous cycle is implemented here. 
+Django's request/response cycle, which is synchronous cycle is implemented here. 
 
 Connect to the database
 
