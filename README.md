@@ -1,15 +1,20 @@
 # API in Django Rest Framework
 
-This project uses Django Rest Framework (DRF) to build an API which stores two items (strings) enter by a client 1. A  name 2. A description. In addition  it generates automaticly  A universally unique identifier  (UUID), creation date and update date for each item. 
+This project uses Django Rest Framework (DRF) to build an API which stores two items (strings) enter by a
+client 1. A  name 2. A description. In addition,  it generates automatically  A universally unique identifier  (UUID),
+creation date and update date for each item. for making operations as: Create, Update, delete, you can use the DRF
+interface as well as a terminal with the endpoints given below. 
+ModelSerializer class, provided for the framework  is used to process input and output data.
+
 
 ## :wrench: Installation 
-You will need to create a virtual enviroment with python =>3.10.
+You will need to create a virtual environment with python min 3.10.
 
 ```shell
 python -m venv venv
 ```
 
-Activate the virtual enviroment 
+Activate the virtual environment 
 
 windows
 ```shell
@@ -26,7 +31,7 @@ Install the requirements
 pip install -r backend/requirements.txt
 ```
 
-Create a user. This will give you access to Django admin page, an it will create a token that you will use to interact with the Data base.
+Create a user. This will give you access to Django admin page, and it will create a token that you will use to interact with the Data base.
 
 ```shell
 python manage.py createsuperuser
@@ -42,7 +47,7 @@ python manage.py runserver
 Access to the token generated with the command:
 
 ```shell
-curl -XPOST -F 'username=yourusername' -F 'password=yourpassword' http://localhost:port/api-token-auth/
+curl -XPOST -F 'username=your_username' -F 'password=your_password' http://localhost:port/api-token-auth/
 ```
 If port 8000 is available, django will run the development server in it. 
 
@@ -50,20 +55,31 @@ You can go to the browser to use the interface provided by DRF and Django:
 *http://127.0.0.1:8000/
 *http://127.0.0.1:8000/admin/ (you will need to enter: the user and the password that you just created in the previous steps)
 
-### Let's use the curl client for CRUD operations.
+#### Let's use the curl client for CRUD operations.
 
 Populate the DB from your terminal making a POST request: 
 
 ```shell
-curl -H"Content-type:application/json" -d'{"name":"*enteraname*","detail":"*enteradescription*"}' 'http://localhost:8000/product/'
+curl -X POST -H"Content-type:application/json" -d'{"name":"*enter_a_name*","detail":"*enter_a_description*"}' 'http://localhost:8000/product/'
 
 ```
 
-Retrieve all the items store in the DB.
+Retrieve all the products stored in the DB.
 
 ```shell
-curl http://localhost:8000/productlisting/
+curl -X GET http://localhost:8000/productlisting/
 ```
+You can use the command jq to get the json data in a more readable format. Make sure you have it [installed locally](https://stedolan.github.io/jq/download/). 
+
+```shell
+curl -X GET http://localhost:8000/productlisting/ | jq 
+```
+Retrieve a single product in the DB
+
+```shell
+curl -X GET http://localhost:8000/productlisting/*enter_product_uuid* | jq 
+```
+
 
 
 
