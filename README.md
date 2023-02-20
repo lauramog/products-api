@@ -69,31 +69,43 @@ You can go to the browser to use the interface provided by DRF and Django:<br>
 
 
 
-### Let's use the curl client for CRUD operations.
 
-Populate the DB from your terminal making a POST request: 
+| Description             | Action               |
+|-------------------------|----------------------|
+| post content            | POST /product        |
+| show all the content    | GET /product/        |
+| Show  specific content  | GET /product/uuid    |
+| delete specific content | DELETE /product/uuid |
+
+### Let's populate the database using  the curl client.
+
 
 ```shell
 curl -X POST -H"Content-type:application/json" -d'{"name":"*enter_a_name*","detail":"*enter_a_description*"}' 'http://localhost:8000/product/'
 
 ```
 
-Retrieve all the products stored in the DB.
+Retrieve all the products stored in the databe
 
 ```shell
-curl -X GET http://localhost:8000/productlisting/
+curl -X GET http://localhost:8000/product/
 ```
 You can use the command jq to get the json data in a more readable format. Make sure you have it [installed locally](https://stedolan.github.io/jq/download/). 
 
 ```shell
-curl -X GET http://localhost:8000/productlisting/ | jq 
+curl -X GET http://localhost:8000/product/ | jq 
 ```
-Retrieve a single product in the DB
+Retrieve a single product 
 
 ```shell
-curl -X GET http://localhost:8000/productlisting/*enter_product_uuid* | jq 
+curl -X GET http://localhost:8000/product/*enter_product_uuid* | jq 
 ```
 
+Delete a single product 
+
+```shell
+curl -X DELETE http://localhost:8000/product/*enter_product_uuid* | jq 
+```
 
 
 
