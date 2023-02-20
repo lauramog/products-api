@@ -6,8 +6,6 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
-router.register(r'productlisting', core_views.ProductViewSet, basename='product')
-
 
 
 urlpatterns = router.urls
@@ -15,6 +13,7 @@ urlpatterns = router.urls
 urlpatterns += [
     path('admin/', admin.site.urls),
     path('product/', core_views.ProductAPIView.as_view()),
+    path('product/<str:pk>/',core_views.ProductDetailView.as_view()),
     path('api-token-auth/',obtain_auth_token)
 
 ]

@@ -41,18 +41,30 @@ class ProductAPIView(views.APIView):
             return JsonResponse({"result": "error","message": "Json decoding error"}, status= 400)
 
 
-class ProductViewSet(
-        DestroyModelMixin,
-        ListModelMixin,
-        RetrieveModelMixin, 
-        viewsets.GenericViewSet,
-        UpdateModelMixin
-        ):
-    """
-    A simple ViewSet for listing, retrieving, deleting or updating products.
-    """
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+
+    def get(self,request):
+        products = Product.objects.all()
+        serializer = ProductSerializer(products,many=True)
+        return Response(serializer.data)
+
+class ProductDetailView(views.APIView):
+
+    def get(self,request,pk,format=None):
+        product=Product.objects.get(id=pk)
+        serializer=ProductSerializer(product)
+        try:
+            return Response(serializer.data)
+        except Product.DoesNotExist:
+            raise Http404
+
+
+    def delete(self,request, pk, format=None):
+        product=Product.objects.get(id=pk)
+        product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
 
 
 
