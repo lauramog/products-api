@@ -33,6 +33,12 @@ Install the requirements
 pip install -r backend/requirements.txt
 ```
 
+Connect to the database
+
+```shell
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=products_pass -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=products_user postgres
+```
+
 Create a user; This will give you access to Django admin page, and it will create a token that you will use to interact with the Data base.
 
 ```shell
@@ -49,11 +55,6 @@ Notice that development server is controlled by ASGI/Channels since we added 'ch
 this configuration allow us to choose between writing synchronous code and asynchronous code, or both.<br> For now, just
 Django's request/response cycle, which is synchronous cycle is implemented here. 
 
-Connect to the database
-
-```shell
-docker run -p 5432:5432 -e POSTGRES_PASSWORD=products_pass -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=products_user postgres
-```
 
 
 Access to the token generated with the command:
@@ -76,7 +77,7 @@ You can go to the browser to use the interface provided by DRF and Django:<br>
 | show all the content   | GET /product/        |
 | Show  specific content | GET /product/uuid/   |
 | update  content        | PUT /product/uuid    |
-| update  content        | DELETE /product/uuid |
+| delete  content        | DELETE /product/uuid |
 
 ### Let's populate the database using  the curl client.
 
