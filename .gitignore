@@ -35,7 +35,6 @@ db.sqlite3-journal
 
 
 # Environments
-.env
 .env.prod
 .env.dev
 .env.staging

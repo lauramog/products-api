@@ -14,6 +14,7 @@ urlpatterns += [
     path('admin/', admin.site.urls),
     path('product/', core_views.ProductAPIView.as_view()),
     path('product/<str:pk>/',core_views.ProductDetailView.as_view()),
-    path('api-token-auth/',obtain_auth_token)
+    #path('product/<str:pk>/update/',core_views.UpdateView.as_view()),
+    path('api-token-auth/',obtain_auth_token),
 
 ]

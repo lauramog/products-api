@@ -47,6 +47,12 @@ class ProductAPIView(views.APIView):
         serializer = ProductSerializer(products,many=True)
         return Response(serializer.data)
 
+
+
+
+
+
+
 class ProductDetailView(views.APIView):
 
     def get(self,request,pk,format=None):
@@ -62,6 +68,15 @@ class ProductDetailView(views.APIView):
         product=Product.objects.get(id=pk)
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, pk, format=None):
+        product = Product.objects.get(id=pk)
+        serializer = ProductSerializer(product, data=JSONParser().parse(request))
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 
 

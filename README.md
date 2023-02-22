@@ -70,12 +70,13 @@ You can go to the browser to use the interface provided by DRF and Django:<br>
 
 
 
-| Description             | Action               |
-|-------------------------|----------------------|
-| post content            | POST /product        |
-| show all the content    | GET /product/        |
-| Show  specific content  | GET /product/uuid    |
-| delete specific content | DELETE /product/uuid |
+| Description            | Action               |
+|------------------------|----------------------|
+| post content           | POST /product/       |
+| show all the content   | GET /product/        |
+| Show  specific content | GET /product/uuid/   |
+| update  content        | PUT /product/uuid    |
+| update  content        | DELETE /product/uuid |
 
 ### Let's populate the database using  the curl client.
 
@@ -98,17 +99,21 @@ curl -X GET http://localhost:8000/product/ | jq
 Retrieve a single product 
 
 ```shell
-curl -X GET http://localhost:8000/product/*enter_product_uuid* | jq 
+curl -X GET http://localhost:8000/product/*enter_product_uuid*/ | jq 
 ```
 
 Delete a single product 
 
 ```shell
-curl -X DELETE http://localhost:8000/product/*enter_product_uuid* | jq 
+curl -X DELETE http://localhost:8000/product/*enter_product_uuid*/
 ```
 
+Update a single product 
 
+```shell
+curl -X PUT -H"Content-type:application/json" -d'{"name":"*enter_a_name*","detail":"*enter_a_description*"}' 'http://localhost:8000/product/*enter_product_uuid*/'
 
+```
 
 
 
