@@ -71,15 +71,16 @@ You can go to the browser to use the interface provided by DRF and Django:<br>
 
 
 
-| Description            | Action               |
-|------------------------|----------------------|
-| post content           | POST /product/       |
-| show all the content   | GET /product/        |
-| Show  specific content | GET /product/uuid/   |
-| update  content        | PUT /product/uuid    |
-| delete  content        | DELETE /product/uuid |
-
 ### Let's populate the database using  the curl client.
+
+| Description            | Action                |
+|------------------------|-----------------------|
+| post content           | POST /product/        |
+| show all the content   | GET /product/         |
+| Show  specific content | GET /product/uuid/    |
+| update  content        | PUT /product/uuid/    |
+| patch content          | PATCH /product/uuid/  |
+| delete  content        | DELETE /product/uuid/ |
 
 
 ```shell
@@ -113,6 +114,13 @@ Update a single product
 
 ```shell
 curl -X PUT -H"Content-type:application/json" -d'{"name":"*enter_a_name*","detail":"*enter_a_description*"}' 'http://localhost:8000/product/*enter_product_uuid*/'
+
+```
+
+Update a specific field for a single product 
+
+```shell
+curl -X PATCH -H"Content-type:application/json" -d'{"name":"*enter_a_name*","detail":"*enter_a_description*"}' 'http://localhost:8000/product/*enter_product_uuid*/'
 
 ```
 

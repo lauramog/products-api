@@ -5,7 +5,6 @@ from .models import Product
 from rest_framework.parsers import JSONParser
 from rest_framework import views, viewsets, status
 from rest_framework.response import Response
-from rest_framework.mixins import ListModelMixin,UpdateModelMixin,RetrieveModelMixin,DestroyModelMixin
 
 
 # Create your views here.
@@ -77,6 +76,18 @@ class ProductDetailView(views.APIView):
             return Response(serializer.data)
 
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
+    def patch(self,request, pk, format=None):
+        product = Product.objects.get(id=pk)
+        serializer = ProductSerializer(product,data=JSONParser().parse(request),partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
+
+
 
 
 
